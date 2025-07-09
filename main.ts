@@ -12,15 +12,15 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         })
     }
 })
+statusbars.onStatusReached(StatusBarKind.Energy, statusbars.StatusComparison.EQ, statusbars.ComparisonType.Percentage, 100, function (status) {
+    statusbar.max += 5
+    statusbar.value = 0
+    d += -50
+})
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprites.destroy(otherSprite, effects.fire, 500)
     statusbar.value += 1
     info.changeScoreBy(1)
-})
-statusbars.onStatusReached(StatusBarKind.Health, statusbars.StatusComparison.EQ, statusbars.ComparisonType.Percentage, 100, function (status) {
-    statusbar.max += 5
-    statusbar.value = 0
-    d += -50
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.setGameOverMessage(true, "GAME OVER!")
