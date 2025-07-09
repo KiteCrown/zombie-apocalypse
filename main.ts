@@ -15,6 +15,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 statusbars.onStatusReached(StatusBarKind.Energy, statusbars.StatusComparison.EQ, statusbars.ComparisonType.Percentage, 100, function (status) {
     statusbar.max += 5
     statusbar.value = 0
+    music.play(music.melodyPlayable(music.powerUp), music.PlaybackMode.InBackground)
     d += -50
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
